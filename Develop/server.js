@@ -4,7 +4,7 @@ const path = require('path');
 const database = require('./db/db.json');
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 app.use(express.static('public'));
 
@@ -29,10 +29,27 @@ app.route('/api/notes')
     let newNote = req.body;
 })
 
+fs.writeFile(jsonFilePath, JSON.stringify(database), function(err) {
+    if (err) {
+        return console.log(err);
+    }
+});
+
+res.json(newNote);
+
+// app.delete('/api/notes/:id', function (req, res) {
+//     let jsonFilePath = path.join(_dirname, '/db/db.json')
+//     for (let i = 0; i < database.length; i++) {
+//         if (database[i].id == req.params.id) {
+//             database.
+//         }
+//     }
+// })
+
 
 
 app.listen(port, function () {
-    console.log('App listening on Port' + port)
+    console.log('App listening on Port' + PORT)
 })
 
 
