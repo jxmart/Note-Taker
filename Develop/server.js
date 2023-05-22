@@ -66,7 +66,7 @@ app.post('/api/notes', (req, res) => {
 //     let jsonFilePath = path.join(_dirname, '/db/db.json')
 //     for (let i = 0; i < database.length; i++) {
 //         if (database[i].id == req.params.id) {
-//             database.
+//             database[i]
 //         }
 //     }
 // })
